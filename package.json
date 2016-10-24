@@ -1,0 +1,24 @@
+{
+  "name": "100shapes-opsbot",
+  "version": "0.0.1",
+  "description": "100 Shapes OpsBot",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/100Shapes/OpsBot.git"
+  },
+  "keywords": [
+    "SlackBot",
+    "Node",
+    "Botkit"
+  ],
+  "author": "Michele Memoli <michele@100shapes.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/100Shapes/OpsBot/issues"
+  },
+  "homepage": "https://github.com/100Shapes/OpsBot#readme"
+}
