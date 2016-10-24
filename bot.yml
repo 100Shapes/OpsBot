@@ -1,0 +1,7 @@
+name: OpsBot
+description: 100 Shapes OpsBot
+email: michele@100shapes.com
+slackscopes:
+  - bot
+  - commands
+  - reactions:write
