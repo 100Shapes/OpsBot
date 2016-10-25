@@ -3,8 +3,9 @@ var token = process.env.SLACK_TOKEN // get slack token passed as variable
 
 // Setup new slackbot with botkit
 var controller = Botkit.slackbot({  
-  debug: false
-})
+  debug: false,
+  json_file_store: 'data'
+});
 
 // Check that token was passed
 if (!token) {  
@@ -20,13 +21,26 @@ controller.spawn({
   }
 });
 
-controller.hears(['up'], ['direct_mention'], function(bot, message) {
+controller.hears(['hi'], ['direct_mention','direct_message'], function(bot, message) {
 
   var userID = message.user // the ID of the user that mentioned 'up'
   var user = "<@"+userID+">" // wrap around like this to create an @ mention of the user
 
+  controller.storage.users.save({id: message.user, objectives:"Object content *here*"});
+
   bot.reply(message, {
-  	text: user + " I'm here",
-  	icon_emoji: ":dash:"
+  	text: "Nice to meet you " + user
   }); // send reply
+})
+
+controller.hears(['objectives'], ['direct_mention','direct_message'], function(bot, message) {
+
+  var userID = message.user // the ID of the user that mentioned 'up'
+  var user = "<@"+userID+">" // wrap around like this to create an @ mention of the user
+  
+  controller.storage.users.get(message.user, function(err, user_data) {  
+    bot.reply(message, {
+      text: user + ' ' + user_data.objectives
+    });
+  });
 })
