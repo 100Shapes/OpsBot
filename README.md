@@ -1,2 +1,4 @@
 # OpsBots
-100 Shapes Ops Bot
+100 Shapes’ operations chat bot for Slack
+
+**WIP**
